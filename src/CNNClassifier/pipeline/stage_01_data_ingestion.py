@@ -1,4 +1,4 @@
-from CNNClassifier.components.stage_01_data_ingestion import DataIngestion
+from CNNClassifier.components import stage_01_data_ingestion 
 from CNNClassifier.config.configuration import ConfigurationManager
 from CNNClassifier import logger
 
