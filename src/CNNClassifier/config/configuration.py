@@ -20,7 +20,14 @@ class ConfigurationManager:
         config = self.config.data_ingestion
         
         create_directory([config.root_dir])
-
+        
+        data_ingestion_config =DataIngestionConfig(
+            root_dir=config.root_dir,
+            Source_URL=config.source_URL,
+            local_data_file=config.local_data_file,
+            unzip_dir=config.unzip_dir 
+        )
+        return data_ingestion_config
 
     def get_prepare_base_model_config(self) -> PrepareBaseModelConfig:
         config = self.config.prepare_base_model
@@ -40,8 +47,6 @@ class ConfigurationManager:
 
         return prepare_base_model_config
     
-
-
     def get_training_config(self) -> TrainingConfig:
         training = self.config.training
         prepare_base_model = self.config.prepare_base_model
@@ -71,4 +76,3 @@ class ConfigurationManager:
             params_batch_size=self.params.BATCH_SIZE
         )
         return eval_config
-         
